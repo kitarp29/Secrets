@@ -1,16 +1,15 @@
-
-body {
-  background-color: #E8ECEF;
+h5{
+  text-align: right;
 }
-
 .centered {
-    padding-top: 200px;
+    padding-top: 50px;
     text-align: center;
 }
 
 .secret-text {
+  font-family: 'Dancing Script', cursive;
   text-align: center;
   font-size: 2rem;
-  color: #fff;
-  background-color: #000;
+  color: #000;
+
 }
