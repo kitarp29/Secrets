@@ -27,7 +27,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://Pratik:"+process.env.MONGO+"@cluster0-hgfgs.mongodb.net/userDB?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://Pratik:Pratik2902@cluster0-hgfgs.mongodb.net/userDB?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
@@ -57,7 +57,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://aqueous-ravine-15860.herokuapp.com/auth/google/secrets",
+    callbackURL: "https: //aqueous-ravine-15860.herokuapp.com/auth/google/secrets",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -77,7 +77,9 @@ app.get("/auth/google",
   passport.authenticate('google', { scope: ["profile"] })
 );
 
-app.get("/auth/google/secrets",passport.authenticate('google', { failureRedirect: "/login" }),function(req, res) {
+app.get("/auth/google/secrets",
+passport.authenticate('google', { failureRedirect: "/login" }),
+function(req, res) {
     // Successful authentication, redirect to secrets.
     res.redirect("/secrets");
   });
