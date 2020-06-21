@@ -43,9 +43,8 @@ userSchema.plugin(findOrCreate);
 const User = new mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy());
-
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user.displayName);
 });
 
 passport.deserializeUser(function(id, done) {
@@ -53,6 +52,8 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
+
+
 
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
@@ -68,6 +69,7 @@ passport.use(new GoogleStrategy({
     });
   }
 ));
+
 
 app.get("/", function(req, res){
   res.render("home");
