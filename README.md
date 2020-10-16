@@ -19,3 +19,5 @@ This Webpage lets user Register via thier Mail ids and password, later they can 
 <li>Create a .env file and connect your Mongo DB </li>
 <li>>node app.js</li>
 <li>Project is served on http://localhost:3000/</li>
+<br>
+*Note- There is a Google Auth setup but never used
